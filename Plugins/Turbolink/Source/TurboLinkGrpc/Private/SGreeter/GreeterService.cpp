@@ -19,12 +19,8 @@ UGreeterService::~UGreeterService()
 void UGreeterService::Connect()
 {
 	FString serviceEndPoint = UTurboLinkGrpcUtilities::GetTurboLinkGrpcConfig()->GetServiceEndPoint(TEXT("GreeterService"));
-	if (serviceEndPoint.IsEmpty())
-	{
-		UE_LOG(LogTurboLink, Error, TEXT("Missing service endpoint"));
-		return;
-	}
-	UE_LOG(LogBlueprint, Warning, TEXT("Connect to GreeterService: '%s'"), *serviceEndPoint);
+
+	UE_LOG(LogTurboLink, Warning, TEXT("Connect to GreeterService: '%s'"), *serviceEndPoint);
 
 	d->Channel = TurboLinkManager->d->CreateServiceChannel(TCHAR_TO_UTF8(*serviceEndPoint), this);
 	d->Stub = ::Greeter::GreeterService::NewStub(d->Channel->RpcChannel);
@@ -71,4 +67,132 @@ void UGreeterService::CallHello(const FGrpcGreeterHelloRequest& Request, FHelloL
 	lambdaWrapper->Handle = InnerClient->InitHello();
 	InnerClient->OnHelloResponse.AddUniqueDynamic(lambdaWrapper, &UGreeterServiceHelloLambdaWrapper::OnResponse);
 	InnerClient->Hello(lambdaWrapper->Handle, Request);
+}
+
+UTimeService::UTimeService()
+	: d(new UTimeService::Private())
+{
+}
+
+UTimeService::~UTimeService()
+{
+	delete d;
+}
+
+void UTimeService::Connect()
+{
+	FString serviceEndPoint = UTurboLinkGrpcUtilities::GetTurboLinkGrpcConfig()->GetServiceEndPoint(TEXT("TimeService"));
+
+	UE_LOG(LogTurboLink, Warning, TEXT("Connect to TimeService: '%s'"), *serviceEndPoint);
+
+	d->Channel = TurboLinkManager->d->CreateServiceChannel(TCHAR_TO_UTF8(*serviceEndPoint), this);
+	d->Stub = ::Greeter::TimeService::NewStub(d->Channel->RpcChannel);
+	grpc_connectivity_state currentChannelState = d->Channel->RpcChannel->GetState(true);
+	if (d->Channel->AttachedServices.size()>1)
+	{
+		OnServiceStateChanged.Broadcast(UTurboLinkGrpcManager::Private::GrpcStateToServiceState(currentChannelState));
+	}
+}
+
+EGrpcServiceState UTimeService::GetServiceState() const
+{
+	if (d->Channel == nullptr) return EGrpcServiceState::NotCreate;
+
+	auto rpcChannelState = d->Channel->RpcChannel->GetState(false);
+	return UTurboLinkGrpcManager::Private::GrpcStateToServiceState(rpcChannelState);
+}
+
+UTimeServiceClient* UTimeService::MakeClient()
+{
+	auto client = UGrpcService::MakeClient<UTimeServiceClient>();
+	return client;
+}
+
+void UTimeService::Shutdown()
+{
+	Super::Shutdown();
+	d->Stub = nullptr;
+	if (d->Channel != nullptr) {
+		TurboLinkManager->d->RemoveServiceChannel(d->Channel, this);
+		d->Channel = nullptr;
+	}
+}
+
+void UTimeService::CallTicktok(const FGrpcGreeterTicktokRequest& Request, FTicktokLambda Lambda)
+{
+	if (InnerClient == nullptr)
+	{
+		InnerClient = MakeClient();
+	}
+	UTimeServiceTicktokLambdaWrapper* lambdaWrapper = NewObject<UTimeServiceTicktokLambdaWrapper>();
+	lambdaWrapper->InnerClient = InnerClient;
+	lambdaWrapper->Lambda = Lambda;
+	lambdaWrapper->Handle = InnerClient->InitTicktok();
+	InnerClient->OnTicktokResponse.AddUniqueDynamic(lambdaWrapper, &UTimeServiceTicktokLambdaWrapper::OnResponse);
+	InnerClient->OnContextStateChange.AddUniqueDynamic(lambdaWrapper, &UTimeServiceTicktokLambdaWrapper::OnContextStateChanged);
+	InnerClient->Ticktok(lambdaWrapper->Handle, Request);
+}
+
+UStreamService::UStreamService()
+	: d(new UStreamService::Private())
+{
+}
+
+UStreamService::~UStreamService()
+{
+	delete d;
+}
+
+void UStreamService::Connect()
+{
+	FString serviceEndPoint = UTurboLinkGrpcUtilities::GetTurboLinkGrpcConfig()->GetServiceEndPoint(TEXT("StreamService"));
+
+	UE_LOG(LogTurboLink, Warning, TEXT("Connect to StreamService: '%s'"), *serviceEndPoint);
+
+	d->Channel = TurboLinkManager->d->CreateServiceChannel(TCHAR_TO_UTF8(*serviceEndPoint), this);
+	d->Stub = ::Greeter::StreamService::NewStub(d->Channel->RpcChannel);
+	grpc_connectivity_state currentChannelState = d->Channel->RpcChannel->GetState(true);
+	if (d->Channel->AttachedServices.size()>1)
+	{
+		OnServiceStateChanged.Broadcast(UTurboLinkGrpcManager::Private::GrpcStateToServiceState(currentChannelState));
+	}
+}
+
+EGrpcServiceState UStreamService::GetServiceState() const
+{
+	if (d->Channel == nullptr) return EGrpcServiceState::NotCreate;
+
+	auto rpcChannelState = d->Channel->RpcChannel->GetState(false);
+	return UTurboLinkGrpcManager::Private::GrpcStateToServiceState(rpcChannelState);
+}
+
+UStreamServiceClient* UStreamService::MakeClient()
+{
+	auto client = UGrpcService::MakeClient<UStreamServiceClient>();
+	return client;
+}
+
+void UStreamService::Shutdown()
+{
+	Super::Shutdown();
+	d->Stub = nullptr;
+	if (d->Channel != nullptr) {
+		TurboLinkManager->d->RemoveServiceChannel(d->Channel, this);
+		d->Channel = nullptr;
+	}
+}
+
+void UStreamService::CallLotsOfReplies(const FGrpcGreeterHelloRequest& Request, FLotsOfRepliesLambda Lambda)
+{
+	if (InnerClient == nullptr)
+	{
+		InnerClient = MakeClient();
+	}
+	UStreamServiceLotsOfRepliesLambdaWrapper* lambdaWrapper = NewObject<UStreamServiceLotsOfRepliesLambdaWrapper>();
+	lambdaWrapper->InnerClient = InnerClient;
+	lambdaWrapper->Lambda = Lambda;
+	lambdaWrapper->Handle = InnerClient->InitLotsOfReplies();
+	InnerClient->OnLotsOfRepliesResponse.AddUniqueDynamic(lambdaWrapper, &UStreamServiceLotsOfRepliesLambdaWrapper::OnResponse);
+	InnerClient->OnContextStateChange.AddUniqueDynamic(lambdaWrapper, &UStreamServiceLotsOfRepliesLambdaWrapper::OnContextStateChanged);
+	InnerClient->LotsOfReplies(lambdaWrapper->Handle, Request);
 }

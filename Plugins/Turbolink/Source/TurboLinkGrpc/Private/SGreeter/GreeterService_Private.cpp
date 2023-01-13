@@ -9,3 +9,37 @@ void UGreeterServiceHelloLambdaWrapper::OnResponse(FGrpcContextHandle _Handle, c
 	InnerClient->OnHelloResponse.RemoveDynamic(this, &UGreeterServiceHelloLambdaWrapper::OnResponse);
 }
 
+void UTimeServiceTicktokLambdaWrapper::OnResponse(FGrpcContextHandle _Handle, const FGrpcResult& Result, const FGrpcGreeterNowResponse& Response)
+{
+	if (_Handle != this->Handle) return;
+
+	Lambda(Result, Response);
+}
+
+void UTimeServiceTicktokLambdaWrapper::OnContextStateChanged(FGrpcContextHandle _Handle, EGrpcContextState NewState)
+{
+	if (_Handle != this->Handle) return;
+	if (NewState == EGrpcContextState::Done)
+	{
+		InnerClient->OnTicktokResponse.RemoveDynamic(this, &UTimeServiceTicktokLambdaWrapper::OnResponse);
+		InnerClient->OnContextStateChange.RemoveDynamic(this, &UTimeServiceTicktokLambdaWrapper::OnContextStateChanged);
+	}
+}
+
+void UStreamServiceLotsOfRepliesLambdaWrapper::OnResponse(FGrpcContextHandle _Handle, const FGrpcResult& Result, const FGrpcGreeterHelloResponse& Response)
+{
+	if (_Handle != this->Handle) return;
+
+	Lambda(Result, Response);
+}
+
+void UStreamServiceLotsOfRepliesLambdaWrapper::OnContextStateChanged(FGrpcContextHandle _Handle, EGrpcContextState NewState)
+{
+	if (_Handle != this->Handle) return;
+	if (NewState == EGrpcContextState::Done)
+	{
+		InnerClient->OnLotsOfRepliesResponse.RemoveDynamic(this, &UStreamServiceLotsOfRepliesLambdaWrapper::OnResponse);
+		InnerClient->OnContextStateChange.RemoveDynamic(this, &UStreamServiceLotsOfRepliesLambdaWrapper::OnContextStateChanged);
+	}
+}
+

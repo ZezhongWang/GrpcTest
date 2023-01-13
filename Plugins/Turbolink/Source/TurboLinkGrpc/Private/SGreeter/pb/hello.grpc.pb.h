@@ -234,6 +234,692 @@ class GreeterService final {
   typedef WithStreamedUnaryMethod_Hello<Service > StreamedService;
 };
 
+class TimeService final {
+ public:
+  static constexpr char const* service_full_name() {
+    return "Greeter.TimeService";
+  }
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::Greeter::NowResponse>> Ticktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::Greeter::NowResponse>>(TicktokRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::NowResponse>> AsyncTicktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::NowResponse>>(AsyncTicktokRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::NowResponse>> PrepareAsyncTicktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::NowResponse>>(PrepareAsyncTicktokRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>> Watch(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>>(WatchRaw(context));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>> AsyncWatch(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>>(AsyncWatchRaw(context, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>> PrepareAsyncWatch(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>>(PrepareAsyncWatchRaw(context, cq));
+    }
+    class async_interface {
+     public:
+      virtual ~async_interface() {}
+      virtual void Ticktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest* request, ::grpc::ClientReadReactor< ::Greeter::NowResponse>* reactor) = 0;
+      virtual void Watch(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::Greeter::WatchRequest,::Greeter::NowResponse>* reactor) = 0;
+    };
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
+    virtual ::grpc::ClientReaderInterface< ::Greeter::NowResponse>* TicktokRaw(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::Greeter::NowResponse>* AsyncTicktokRaw(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::Greeter::NowResponse>* PrepareAsyncTicktokRaw(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>* WatchRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>* AsyncWatchRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::WatchRequest, ::Greeter::NowResponse>* PrepareAsyncWatchRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+    std::unique_ptr< ::grpc::ClientReader< ::Greeter::NowResponse>> Ticktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::Greeter::NowResponse>>(TicktokRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::NowResponse>> AsyncTicktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::NowResponse>>(AsyncTicktokRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::NowResponse>> PrepareAsyncTicktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::NowResponse>>(PrepareAsyncTicktokRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>> Watch(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>>(WatchRaw(context));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>> AsyncWatch(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>>(AsyncWatchRaw(context, cq, tag));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>> PrepareAsyncWatch(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>>(PrepareAsyncWatchRaw(context, cq));
+    }
+    class async final :
+      public StubInterface::async_interface {
+     public:
+      void Ticktok(::grpc::ClientContext* context, const ::Greeter::TicktokRequest* request, ::grpc::ClientReadReactor< ::Greeter::NowResponse>* reactor) override;
+      void Watch(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::Greeter::WatchRequest,::Greeter::NowResponse>* reactor) override;
+     private:
+      friend class Stub;
+      explicit async(Stub* stub): stub_(stub) { }
+      Stub* stub() { return stub_; }
+      Stub* stub_;
+    };
+    class async* async() override { return &async_stub_; }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    class async async_stub_{this};
+    ::grpc::ClientReader< ::Greeter::NowResponse>* TicktokRaw(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request) override;
+    ::grpc::ClientAsyncReader< ::Greeter::NowResponse>* AsyncTicktokRaw(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::Greeter::NowResponse>* PrepareAsyncTicktokRaw(::grpc::ClientContext* context, const ::Greeter::TicktokRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>* WatchRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>* AsyncWatchRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::Greeter::WatchRequest, ::Greeter::NowResponse>* PrepareAsyncWatchRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_Ticktok_;
+    const ::grpc::internal::RpcMethod rpcmethod_Watch_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status Ticktok(::grpc::ServerContext* context, const ::Greeter::TicktokRequest* request, ::grpc::ServerWriter< ::Greeter::NowResponse>* writer);
+    virtual ::grpc::Status Watch(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::Greeter::NowResponse, ::Greeter::WatchRequest>* stream);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Ticktok : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_Ticktok() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_Ticktok() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ticktok(::grpc::ServerContext* /*context*/, const ::Greeter::TicktokRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::NowResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestTicktok(::grpc::ServerContext* context, ::Greeter::TicktokRequest* request, ::grpc::ServerAsyncWriter< ::Greeter::NowResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Watch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_Watch() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_Watch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::NowResponse, ::Greeter::WatchRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestWatch(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::Greeter::NowResponse, ::Greeter::WatchRequest>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_Ticktok<WithAsyncMethod_Watch<Service > > AsyncService;
+  template <class BaseClass>
+  class WithCallbackMethod_Ticktok : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_Ticktok() {
+      ::grpc::Service::MarkMethodCallback(0,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::Greeter::TicktokRequest, ::Greeter::NowResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::Greeter::TicktokRequest* request) { return this->Ticktok(context, request); }));
+    }
+    ~WithCallbackMethod_Ticktok() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ticktok(::grpc::ServerContext* /*context*/, const ::Greeter::TicktokRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::NowResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerWriteReactor< ::Greeter::NowResponse>* Ticktok(
+      ::grpc::CallbackServerContext* /*context*/, const ::Greeter::TicktokRequest* /*request*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_Watch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_Watch() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackBidiHandler< ::Greeter::WatchRequest, ::Greeter::NowResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->Watch(context); }));
+    }
+    ~WithCallbackMethod_Watch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::NowResponse, ::Greeter::WatchRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::Greeter::WatchRequest, ::Greeter::NowResponse>* Watch(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
+  };
+  typedef WithCallbackMethod_Ticktok<WithCallbackMethod_Watch<Service > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_Ticktok : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_Ticktok() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_Ticktok() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ticktok(::grpc::ServerContext* /*context*/, const ::Greeter::TicktokRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::NowResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Watch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_Watch() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_Watch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::NowResponse, ::Greeter::WatchRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Ticktok : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_Ticktok() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_Ticktok() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ticktok(::grpc::ServerContext* /*context*/, const ::Greeter::TicktokRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::NowResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestTicktok(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Watch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_Watch() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_Watch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::NowResponse, ::Greeter::WatchRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestWatch(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_Ticktok : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_Ticktok() {
+      ::grpc::Service::MarkMethodRawCallback(0,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->Ticktok(context, request); }));
+    }
+    ~WithRawCallbackMethod_Ticktok() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ticktok(::grpc::ServerContext* /*context*/, const ::Greeter::TicktokRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::NowResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* Ticktok(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_Watch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_Watch() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->Watch(context); }));
+    }
+    ~WithRawCallbackMethod_Watch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::NowResponse, ::Greeter::WatchRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Watch(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
+  };
+  typedef Service StreamedUnaryService;
+  template <class BaseClass>
+  class WithSplitStreamingMethod_Ticktok : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithSplitStreamingMethod_Ticktok() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::SplitServerStreamingHandler<
+          ::Greeter::TicktokRequest, ::Greeter::NowResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerSplitStreamer<
+                     ::Greeter::TicktokRequest, ::Greeter::NowResponse>* streamer) {
+                       return this->StreamedTicktok(context,
+                         streamer);
+                  }));
+    }
+    ~WithSplitStreamingMethod_Ticktok() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Ticktok(::grpc::ServerContext* /*context*/, const ::Greeter::TicktokRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::NowResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedTicktok(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::Greeter::TicktokRequest,::Greeter::NowResponse>* server_split_streamer) = 0;
+  };
+  typedef WithSplitStreamingMethod_Ticktok<Service > SplitStreamedService;
+  typedef WithSplitStreamingMethod_Ticktok<Service > StreamedService;
+};
+
+class StreamService final {
+ public:
+  static constexpr char const* service_full_name() {
+    return "Greeter.StreamService";
+  }
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    // Server Stream
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::Greeter::HelloResponse>> LotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::Greeter::HelloResponse>>(LotsOfRepliesRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::HelloResponse>> AsyncLotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::HelloResponse>>(AsyncLotsOfRepliesRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::HelloResponse>> PrepareAsyncLotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Greeter::HelloResponse>>(PrepareAsyncLotsOfRepliesRaw(context, request, cq));
+    }
+    // Client Stream
+    // rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse);
+    // Bidirectional Stream
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>> BidiHello(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>>(BidiHelloRaw(context));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>> AsyncBidiHello(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>>(AsyncBidiHelloRaw(context, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>> PrepareAsyncBidiHello(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>>(PrepareAsyncBidiHelloRaw(context, cq));
+    }
+    class async_interface {
+     public:
+      virtual ~async_interface() {}
+      // Server Stream
+      virtual void LotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest* request, ::grpc::ClientReadReactor< ::Greeter::HelloResponse>* reactor) = 0;
+      // Client Stream
+      // rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse);
+      // Bidirectional Stream
+      virtual void BidiHello(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::Greeter::HelloRequest,::Greeter::HelloResponse>* reactor) = 0;
+    };
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
+    virtual ::grpc::ClientReaderInterface< ::Greeter::HelloResponse>* LotsOfRepliesRaw(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::Greeter::HelloResponse>* AsyncLotsOfRepliesRaw(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::Greeter::HelloResponse>* PrepareAsyncLotsOfRepliesRaw(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>* BidiHelloRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>* AsyncBidiHelloRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::Greeter::HelloRequest, ::Greeter::HelloResponse>* PrepareAsyncBidiHelloRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+    std::unique_ptr< ::grpc::ClientReader< ::Greeter::HelloResponse>> LotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::Greeter::HelloResponse>>(LotsOfRepliesRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::HelloResponse>> AsyncLotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::HelloResponse>>(AsyncLotsOfRepliesRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::HelloResponse>> PrepareAsyncLotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::Greeter::HelloResponse>>(PrepareAsyncLotsOfRepliesRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>> BidiHello(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>>(BidiHelloRaw(context));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>> AsyncBidiHello(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>>(AsyncBidiHelloRaw(context, cq, tag));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>> PrepareAsyncBidiHello(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>>(PrepareAsyncBidiHelloRaw(context, cq));
+    }
+    class async final :
+      public StubInterface::async_interface {
+     public:
+      void LotsOfReplies(::grpc::ClientContext* context, const ::Greeter::HelloRequest* request, ::grpc::ClientReadReactor< ::Greeter::HelloResponse>* reactor) override;
+      void BidiHello(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::Greeter::HelloRequest,::Greeter::HelloResponse>* reactor) override;
+     private:
+      friend class Stub;
+      explicit async(Stub* stub): stub_(stub) { }
+      Stub* stub() { return stub_; }
+      Stub* stub_;
+    };
+    class async* async() override { return &async_stub_; }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    class async async_stub_{this};
+    ::grpc::ClientReader< ::Greeter::HelloResponse>* LotsOfRepliesRaw(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request) override;
+    ::grpc::ClientAsyncReader< ::Greeter::HelloResponse>* AsyncLotsOfRepliesRaw(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::Greeter::HelloResponse>* PrepareAsyncLotsOfRepliesRaw(::grpc::ClientContext* context, const ::Greeter::HelloRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>* BidiHelloRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>* AsyncBidiHelloRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::Greeter::HelloRequest, ::Greeter::HelloResponse>* PrepareAsyncBidiHelloRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_LotsOfReplies_;
+    const ::grpc::internal::RpcMethod rpcmethod_BidiHello_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    // Server Stream
+    virtual ::grpc::Status LotsOfReplies(::grpc::ServerContext* context, const ::Greeter::HelloRequest* request, ::grpc::ServerWriter< ::Greeter::HelloResponse>* writer);
+    // Client Stream
+    // rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse);
+    // Bidirectional Stream
+    virtual ::grpc::Status BidiHello(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::Greeter::HelloResponse, ::Greeter::HelloRequest>* stream);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_LotsOfReplies : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_LotsOfReplies() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_LotsOfReplies() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LotsOfReplies(::grpc::ServerContext* /*context*/, const ::Greeter::HelloRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::HelloResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestLotsOfReplies(::grpc::ServerContext* context, ::Greeter::HelloRequest* request, ::grpc::ServerAsyncWriter< ::Greeter::HelloResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_BidiHello : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_BidiHello() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_BidiHello() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BidiHello(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::HelloResponse, ::Greeter::HelloRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestBidiHello(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::Greeter::HelloResponse, ::Greeter::HelloRequest>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_LotsOfReplies<WithAsyncMethod_BidiHello<Service > > AsyncService;
+  template <class BaseClass>
+  class WithCallbackMethod_LotsOfReplies : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_LotsOfReplies() {
+      ::grpc::Service::MarkMethodCallback(0,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::Greeter::HelloRequest, ::Greeter::HelloResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::Greeter::HelloRequest* request) { return this->LotsOfReplies(context, request); }));
+    }
+    ~WithCallbackMethod_LotsOfReplies() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LotsOfReplies(::grpc::ServerContext* /*context*/, const ::Greeter::HelloRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::HelloResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerWriteReactor< ::Greeter::HelloResponse>* LotsOfReplies(
+      ::grpc::CallbackServerContext* /*context*/, const ::Greeter::HelloRequest* /*request*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_BidiHello : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_BidiHello() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackBidiHandler< ::Greeter::HelloRequest, ::Greeter::HelloResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->BidiHello(context); }));
+    }
+    ~WithCallbackMethod_BidiHello() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BidiHello(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::HelloResponse, ::Greeter::HelloRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::Greeter::HelloRequest, ::Greeter::HelloResponse>* BidiHello(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
+  };
+  typedef WithCallbackMethod_LotsOfReplies<WithCallbackMethod_BidiHello<Service > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_LotsOfReplies : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_LotsOfReplies() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_LotsOfReplies() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LotsOfReplies(::grpc::ServerContext* /*context*/, const ::Greeter::HelloRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::HelloResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_BidiHello : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_BidiHello() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_BidiHello() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BidiHello(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::HelloResponse, ::Greeter::HelloRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_LotsOfReplies : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_LotsOfReplies() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_LotsOfReplies() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LotsOfReplies(::grpc::ServerContext* /*context*/, const ::Greeter::HelloRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::HelloResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestLotsOfReplies(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_BidiHello : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_BidiHello() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_BidiHello() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BidiHello(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::HelloResponse, ::Greeter::HelloRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestBidiHello(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_LotsOfReplies : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_LotsOfReplies() {
+      ::grpc::Service::MarkMethodRawCallback(0,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->LotsOfReplies(context, request); }));
+    }
+    ~WithRawCallbackMethod_LotsOfReplies() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LotsOfReplies(::grpc::ServerContext* /*context*/, const ::Greeter::HelloRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::HelloResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* LotsOfReplies(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_BidiHello : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_BidiHello() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->BidiHello(context); }));
+    }
+    ~WithRawCallbackMethod_BidiHello() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status BidiHello(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::Greeter::HelloResponse, ::Greeter::HelloRequest>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* BidiHello(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
+  };
+  typedef Service StreamedUnaryService;
+  template <class BaseClass>
+  class WithSplitStreamingMethod_LotsOfReplies : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithSplitStreamingMethod_LotsOfReplies() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::SplitServerStreamingHandler<
+          ::Greeter::HelloRequest, ::Greeter::HelloResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerSplitStreamer<
+                     ::Greeter::HelloRequest, ::Greeter::HelloResponse>* streamer) {
+                       return this->StreamedLotsOfReplies(context,
+                         streamer);
+                  }));
+    }
+    ~WithSplitStreamingMethod_LotsOfReplies() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status LotsOfReplies(::grpc::ServerContext* /*context*/, const ::Greeter::HelloRequest* /*request*/, ::grpc::ServerWriter< ::Greeter::HelloResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedLotsOfReplies(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::Greeter::HelloRequest,::Greeter::HelloResponse>* server_split_streamer) = 0;
+  };
+  typedef WithSplitStreamingMethod_LotsOfReplies<Service > SplitStreamedService;
+  typedef WithSplitStreamingMethod_LotsOfReplies<Service > StreamedService;
+};
+
 }  // namespace Greeter
 
 

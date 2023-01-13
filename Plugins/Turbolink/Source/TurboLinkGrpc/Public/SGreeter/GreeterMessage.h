@@ -22,3 +22,30 @@ struct FGrpcGreeterHelloResponse : public FGrpcMessage
     FString ReplyMessage;
 };
 
+USTRUCT(BlueprintType, meta = (DisplayName="Greeter.TicktokRequest"))
+struct FGrpcGreeterTicktokRequest : public FGrpcMessage
+{
+    GENERATED_USTRUCT_BODY()
+
+    UPROPERTY(BlueprintReadWrite)
+    int32 Counts;
+};
+
+USTRUCT(BlueprintType, meta = (DisplayName="Greeter.WatchRequest"))
+struct FGrpcGreeterWatchRequest : public FGrpcMessage
+{
+    GENERATED_USTRUCT_BODY()
+};
+
+USTRUCT(BlueprintType, meta = (DisplayName="Greeter.NowResponse"))
+struct FGrpcGreeterNowResponse : public FGrpcMessage
+{
+    GENERATED_USTRUCT_BODY()
+
+    UPROPERTY(BlueprintReadWrite)
+    FUInt64 Now;
+
+    UPROPERTY(BlueprintReadWrite)
+    int32 Counts;
+};
+

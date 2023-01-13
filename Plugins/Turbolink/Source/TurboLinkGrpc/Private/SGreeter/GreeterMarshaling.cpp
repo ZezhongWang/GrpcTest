@@ -19,3 +19,30 @@ void TURBOLINK_TO_GRPC(const FGrpcGreeterHelloResponse* in, ::Greeter::HelloResp
 {
     out->set_reply_message(TCHAR_TO_UTF8(*(in->ReplyMessage)));
 }
+void GRPC_TO_TURBOLINK(const ::Greeter::TicktokRequest* in, FGrpcGreeterTicktokRequest* out)
+{
+    out->Counts=in->counts();
+}
+
+void TURBOLINK_TO_GRPC(const FGrpcGreeterTicktokRequest* in, ::Greeter::TicktokRequest* out)
+{
+    out->set_counts(in->Counts);
+}
+void GRPC_TO_TURBOLINK(const ::Greeter::WatchRequest* in, FGrpcGreeterWatchRequest* out)
+{
+}
+
+void TURBOLINK_TO_GRPC(const FGrpcGreeterWatchRequest* in, ::Greeter::WatchRequest* out)
+{
+}
+void GRPC_TO_TURBOLINK(const ::Greeter::NowResponse* in, FGrpcGreeterNowResponse* out)
+{
+    out->Now=in->now();
+    out->Counts=in->counts();
+}
+
+void TURBOLINK_TO_GRPC(const FGrpcGreeterNowResponse* in, ::Greeter::NowResponse* out)
+{
+    out->set_now(in->Now);
+    out->set_counts(in->Counts);
+}

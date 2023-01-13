@@ -26,6 +26,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_table_driven.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
@@ -49,7 +50,7 @@ struct TableStruct_hello_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -63,10 +64,22 @@ extern HelloRequestDefaultTypeInternal _HelloRequest_default_instance_;
 class HelloResponse;
 struct HelloResponseDefaultTypeInternal;
 extern HelloResponseDefaultTypeInternal _HelloResponse_default_instance_;
+class NowResponse;
+struct NowResponseDefaultTypeInternal;
+extern NowResponseDefaultTypeInternal _NowResponse_default_instance_;
+class TicktokRequest;
+struct TicktokRequestDefaultTypeInternal;
+extern TicktokRequestDefaultTypeInternal _TicktokRequest_default_instance_;
+class WatchRequest;
+struct WatchRequestDefaultTypeInternal;
+extern WatchRequestDefaultTypeInternal _WatchRequest_default_instance_;
 }  // namespace Greeter
 PROTOBUF_NAMESPACE_OPEN
 template<> ::Greeter::HelloRequest* Arena::CreateMaybeMessage<::Greeter::HelloRequest>(Arena*);
 template<> ::Greeter::HelloResponse* Arena::CreateMaybeMessage<::Greeter::HelloResponse>(Arena*);
+template<> ::Greeter::NowResponse* Arena::CreateMaybeMessage<::Greeter::NowResponse>(Arena*);
+template<> ::Greeter::TicktokRequest* Arena::CreateMaybeMessage<::Greeter::TicktokRequest>(Arena*);
+template<> ::Greeter::WatchRequest* Arena::CreateMaybeMessage<::Greeter::WatchRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace Greeter {
 
@@ -372,6 +385,427 @@ class HelloResponse final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_hello_2eproto;
 };
+// -------------------------------------------------------------------
+
+class TicktokRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Greeter.TicktokRequest) */ {
+ public:
+  inline TicktokRequest() : TicktokRequest(nullptr) {}
+  ~TicktokRequest() override;
+  explicit constexpr TicktokRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TicktokRequest(const TicktokRequest& from);
+  TicktokRequest(TicktokRequest&& from) noexcept
+    : TicktokRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline TicktokRequest& operator=(const TicktokRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TicktokRequest& operator=(TicktokRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TicktokRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TicktokRequest* internal_default_instance() {
+    return reinterpret_cast<const TicktokRequest*>(
+               &_TicktokRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(TicktokRequest& a, TicktokRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TicktokRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TicktokRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TicktokRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TicktokRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TicktokRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const TicktokRequest& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TicktokRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Greeter.TicktokRequest";
+  }
+  protected:
+  explicit TicktokRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCountsFieldNumber = 1,
+  };
+  // int32 counts = 1;
+  void clear_counts();
+  int32_t counts() const;
+  void set_counts(int32_t value);
+  private:
+  int32_t _internal_counts() const;
+  void _internal_set_counts(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Greeter.TicktokRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int32_t counts_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_hello_2eproto;
+};
+// -------------------------------------------------------------------
+
+class WatchRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:Greeter.WatchRequest) */ {
+ public:
+  inline WatchRequest() : WatchRequest(nullptr) {}
+  explicit constexpr WatchRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  WatchRequest(const WatchRequest& from);
+  WatchRequest(WatchRequest&& from) noexcept
+    : WatchRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline WatchRequest& operator=(const WatchRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline WatchRequest& operator=(WatchRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const WatchRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const WatchRequest* internal_default_instance() {
+    return reinterpret_cast<const WatchRequest*>(
+               &_WatchRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(WatchRequest& a, WatchRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(WatchRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(WatchRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  WatchRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<WatchRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const WatchRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const WatchRequest& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Greeter.WatchRequest";
+  }
+  protected:
+  explicit WatchRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:Greeter.WatchRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_hello_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NowResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Greeter.NowResponse) */ {
+ public:
+  inline NowResponse() : NowResponse(nullptr) {}
+  ~NowResponse() override;
+  explicit constexpr NowResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  NowResponse(const NowResponse& from);
+  NowResponse(NowResponse&& from) noexcept
+    : NowResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline NowResponse& operator=(const NowResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NowResponse& operator=(NowResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const NowResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const NowResponse* internal_default_instance() {
+    return reinterpret_cast<const NowResponse*>(
+               &_NowResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(NowResponse& a, NowResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(NowResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(NowResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  NowResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<NowResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const NowResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const NowResponse& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NowResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Greeter.NowResponse";
+  }
+  protected:
+  explicit NowResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNowFieldNumber = 1,
+    kCountsFieldNumber = 2,
+  };
+  // uint64 now = 1;
+  void clear_now();
+  uint64_t now() const;
+  void set_now(uint64_t value);
+  private:
+  uint64_t _internal_now() const;
+  void _internal_set_now(uint64_t value);
+  public:
+
+  // int32 counts = 2;
+  void clear_counts();
+  int32_t counts() const;
+  void set_counts(int32_t value);
+  private:
+  int32_t _internal_counts() const;
+  void _internal_set_counts(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Greeter.NowResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint64_t now_;
+  int32_t counts_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_hello_2eproto;
+};
 // ===================================================================
 
 
@@ -489,9 +923,87 @@ inline void HelloResponse::set_allocated_reply_message(std::string* reply_messag
   // @@protoc_insertion_point(field_set_allocated:Greeter.HelloResponse.reply_message)
 }
 
+// -------------------------------------------------------------------
+
+// TicktokRequest
+
+// int32 counts = 1;
+inline void TicktokRequest::clear_counts() {
+  counts_ = 0;
+}
+inline int32_t TicktokRequest::_internal_counts() const {
+  return counts_;
+}
+inline int32_t TicktokRequest::counts() const {
+  // @@protoc_insertion_point(field_get:Greeter.TicktokRequest.counts)
+  return _internal_counts();
+}
+inline void TicktokRequest::_internal_set_counts(int32_t value) {
+  
+  counts_ = value;
+}
+inline void TicktokRequest::set_counts(int32_t value) {
+  _internal_set_counts(value);
+  // @@protoc_insertion_point(field_set:Greeter.TicktokRequest.counts)
+}
+
+// -------------------------------------------------------------------
+
+// WatchRequest
+
+// -------------------------------------------------------------------
+
+// NowResponse
+
+// uint64 now = 1;
+inline void NowResponse::clear_now() {
+  now_ = uint64_t{0u};
+}
+inline uint64_t NowResponse::_internal_now() const {
+  return now_;
+}
+inline uint64_t NowResponse::now() const {
+  // @@protoc_insertion_point(field_get:Greeter.NowResponse.now)
+  return _internal_now();
+}
+inline void NowResponse::_internal_set_now(uint64_t value) {
+  
+  now_ = value;
+}
+inline void NowResponse::set_now(uint64_t value) {
+  _internal_set_now(value);
+  // @@protoc_insertion_point(field_set:Greeter.NowResponse.now)
+}
+
+// int32 counts = 2;
+inline void NowResponse::clear_counts() {
+  counts_ = 0;
+}
+inline int32_t NowResponse::_internal_counts() const {
+  return counts_;
+}
+inline int32_t NowResponse::counts() const {
+  // @@protoc_insertion_point(field_get:Greeter.NowResponse.counts)
+  return _internal_counts();
+}
+inline void NowResponse::_internal_set_counts(int32_t value) {
+  
+  counts_ = value;
+}
+inline void NowResponse::set_counts(int32_t value) {
+  _internal_set_counts(value);
+  // @@protoc_insertion_point(field_set:Greeter.NowResponse.counts)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

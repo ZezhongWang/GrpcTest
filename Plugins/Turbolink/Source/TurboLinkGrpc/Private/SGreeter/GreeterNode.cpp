@@ -6,14 +6,12 @@
 
 UCallGreeterServiceHello* UCallGreeterServiceHello::Hello(const FGrpcGreeterHelloRequest& Request)
 {
-	UE_LOG(LogBlueprint, Warning, TEXT("Enter Hello"));
 	UCallGreeterServiceHello* node = NewObject<UCallGreeterServiceHello>();
 	UTurboLinkGrpcManager* turboLinkManager = UTurboLinkGrpcUtilities::GetTurboLinkGrpcManager();
 
 	node->GreeterService = Cast<UGreeterService>(turboLinkManager->MakeService("GreeterService"));
 	if (node->GreeterService == nullptr)
 	{
-		UE_LOG(LogBlueprint, Warning, TEXT("GreeterService is null"));
 		return nullptr;
 	}
 	node->Request = Request;

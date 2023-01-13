@@ -16,3 +16,57 @@ public:
 	GrpcContext_GreeterService_Hello(FGrpcContextHandle _Handle, UGrpcService* _Service, UGrpcClient* _Client);
 };
 
+class GrpcContext_TimeService_Ticktok : public GrpcContext_Ping_Stream<TimeService_Ticktok_ReaderWriter, ::Greeter::NowResponse>
+{
+	friend class UTimeServiceClient;
+	typedef GrpcContext_Ping_Stream<TimeService_Ticktok_ReaderWriter, ::Greeter::NowResponse> Super;
+
+private:
+	void Call(const FGrpcGreeterTicktokRequest& Request);
+	virtual void OnRpcEvent(bool Ok, const void* EventTag) override;
+
+public:
+	GrpcContext_TimeService_Ticktok(FGrpcContextHandle _Handle, UGrpcService* _Service, UGrpcClient* _Client);
+};
+
+class GrpcContext_TimeService_Watch : public GrpcContext_Stream_Stream<TimeService_Watch_ReaderWriter, ::Greeter::NowResponse, ::Greeter::WatchRequest>
+{
+	friend class UTimeServiceClient;
+	typedef GrpcContext_Stream_Stream<TimeService_Watch_ReaderWriter, ::Greeter::NowResponse, ::Greeter::WatchRequest> Super;
+
+private:
+	void Init();
+	void Call(const FGrpcGreeterWatchRequest& Request);
+	virtual void OnRpcEvent(bool Ok, const void* EventTag) override;
+
+public:
+	GrpcContext_TimeService_Watch(FGrpcContextHandle _Handle, UGrpcService* _Service, UGrpcClient* _Client);
+};
+
+class GrpcContext_StreamService_LotsOfReplies : public GrpcContext_Ping_Stream<StreamService_LotsOfReplies_ReaderWriter, ::Greeter::HelloResponse>
+{
+	friend class UStreamServiceClient;
+	typedef GrpcContext_Ping_Stream<StreamService_LotsOfReplies_ReaderWriter, ::Greeter::HelloResponse> Super;
+
+private:
+	void Call(const FGrpcGreeterHelloRequest& Request);
+	virtual void OnRpcEvent(bool Ok, const void* EventTag) override;
+
+public:
+	GrpcContext_StreamService_LotsOfReplies(FGrpcContextHandle _Handle, UGrpcService* _Service, UGrpcClient* _Client);
+};
+
+class GrpcContext_StreamService_BidiHello : public GrpcContext_Stream_Stream<StreamService_BidiHello_ReaderWriter, ::Greeter::HelloResponse, ::Greeter::HelloRequest>
+{
+	friend class UStreamServiceClient;
+	typedef GrpcContext_Stream_Stream<StreamService_BidiHello_ReaderWriter, ::Greeter::HelloResponse, ::Greeter::HelloRequest> Super;
+
+private:
+	void Init();
+	void Call(const FGrpcGreeterHelloRequest& Request);
+	virtual void OnRpcEvent(bool Ok, const void* EventTag) override;
+
+public:
+	GrpcContext_StreamService_BidiHello(FGrpcContextHandle _Handle, UGrpcService* _Service, UGrpcClient* _Client);
+};
+

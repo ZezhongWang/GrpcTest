@@ -12,6 +12,18 @@ public:
 	std::shared_ptr<UTurboLinkGrpcManager::Private::ServiceChannel> Channel;
 	std::unique_ptr<::Greeter::GreeterService::Stub> Stub;
 };
+class UTimeService::Private
+{
+public:
+	std::shared_ptr<UTurboLinkGrpcManager::Private::ServiceChannel> Channel;
+	std::unique_ptr<::Greeter::TimeService::Stub> Stub;
+};
+class UStreamService::Private
+{
+public:
+	std::shared_ptr<UTurboLinkGrpcManager::Private::ServiceChannel> Channel;
+	std::unique_ptr<::Greeter::StreamService::Stub> Stub;
+};
 
 UCLASS()
 class UGreeterServiceHelloLambdaWrapper : public UObject
@@ -26,5 +38,39 @@ public:
 public:
 	FGrpcContextHandle Handle;
 	UGreeterService::FHelloLambda Lambda;
+};
+
+UCLASS()
+class UTimeServiceTicktokLambdaWrapper : public UObject
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY()
+	UTimeServiceClient* InnerClient;
+
+	UFUNCTION()
+	void OnResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterNowResponse& Response);
+	UFUNCTION()
+	void OnContextStateChanged(FGrpcContextHandle Handle, EGrpcContextState NewState);
+public:
+	FGrpcContextHandle Handle;
+	UTimeService::FTicktokLambda Lambda;
+};
+
+UCLASS()
+class UStreamServiceLotsOfRepliesLambdaWrapper : public UObject
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY()
+	UStreamServiceClient* InnerClient;
+
+	UFUNCTION()
+	void OnResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterHelloResponse& Response);
+	UFUNCTION()
+	void OnContextStateChanged(FGrpcContextHandle Handle, EGrpcContextState NewState);
+public:
+	FGrpcContextHandle Handle;
+	UStreamService::FLotsOfRepliesLambda Lambda;
 };
 

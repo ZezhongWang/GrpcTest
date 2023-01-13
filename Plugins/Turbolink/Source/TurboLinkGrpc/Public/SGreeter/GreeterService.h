@@ -37,3 +37,65 @@ public:
 	virtual ~UGreeterService();
 };
 
+UCLASS(ClassGroup = TurboLink, BlueprintType)
+class TURBOLINKGRPC_API UTimeService : public UGrpcService
+{
+	GENERATED_BODY()
+public:
+	UFUNCTION(BlueprintCallable)
+	virtual void Connect() override;
+	
+	UFUNCTION(BlueprintCallable)
+	virtual EGrpcServiceState GetServiceState() const override;
+
+	UFUNCTION(BlueprintCallable)
+	UTimeServiceClient* MakeClient();
+
+	virtual void Shutdown() override;
+private:
+	UPROPERTY()
+	UTimeServiceClient* InnerClient; 
+public:
+	typedef TFunction<void(const FGrpcResult& Result, const FGrpcGreeterNowResponse& Response)> FTicktokLambda;
+	void CallTicktok(const FGrpcGreeterTicktokRequest& Request, FTicktokLambda Lambda);
+
+public:
+	class Private;
+	Private* const d = nullptr;
+
+public:
+	UTimeService();
+	virtual ~UTimeService();
+};
+
+UCLASS(ClassGroup = TurboLink, BlueprintType)
+class TURBOLINKGRPC_API UStreamService : public UGrpcService
+{
+	GENERATED_BODY()
+public:
+	UFUNCTION(BlueprintCallable)
+	virtual void Connect() override;
+	
+	UFUNCTION(BlueprintCallable)
+	virtual EGrpcServiceState GetServiceState() const override;
+
+	UFUNCTION(BlueprintCallable)
+	UStreamServiceClient* MakeClient();
+
+	virtual void Shutdown() override;
+private:
+	UPROPERTY()
+	UStreamServiceClient* InnerClient; 
+public:
+	typedef TFunction<void(const FGrpcResult& Result, const FGrpcGreeterHelloResponse& Response)> FLotsOfRepliesLambda;
+	void CallLotsOfReplies(const FGrpcGreeterHelloRequest& Request, FLotsOfRepliesLambda Lambda);
+
+public:
+	class Private;
+	Private* const d = nullptr;
+
+public:
+	UStreamService();
+	virtual ~UStreamService();
+};
+

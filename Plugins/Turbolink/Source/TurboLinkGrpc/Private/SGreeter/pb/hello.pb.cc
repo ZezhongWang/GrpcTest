@@ -58,8 +58,44 @@ struct HelloResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HelloResponseDefaultTypeInternal _HelloResponse_default_instance_;
+constexpr TicktokRequest::TicktokRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : counts_(0){}
+struct TicktokRequestDefaultTypeInternal {
+  constexpr TicktokRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~TicktokRequestDefaultTypeInternal() {}
+  union {
+    TicktokRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT TicktokRequestDefaultTypeInternal _TicktokRequest_default_instance_;
+constexpr WatchRequest::WatchRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct WatchRequestDefaultTypeInternal {
+  constexpr WatchRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~WatchRequestDefaultTypeInternal() {}
+  union {
+    WatchRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT WatchRequestDefaultTypeInternal _WatchRequest_default_instance_;
+constexpr NowResponse::NowResponse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : now_(uint64_t{0u})
+  , counts_(0){}
+struct NowResponseDefaultTypeInternal {
+  constexpr NowResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NowResponseDefaultTypeInternal() {}
+  union {
+    NowResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NowResponseDefaultTypeInternal _NowResponse_default_instance_;
 }  // namespace Greeter
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hello_2eproto[2];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hello_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_hello_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_hello_2eproto = nullptr;
 
@@ -78,28 +114,65 @@ const uint32_t TableStruct_hello_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::Greeter::HelloResponse, reply_message_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Greeter::TicktokRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::Greeter::TicktokRequest, counts_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Greeter::WatchRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Greeter::NowResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::Greeter::NowResponse, now_),
+  PROTOBUF_FIELD_OFFSET(::Greeter::NowResponse, counts_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::Greeter::HelloRequest)},
   { 7, -1, -1, sizeof(::Greeter::HelloResponse)},
+  { 14, -1, -1, sizeof(::Greeter::TicktokRequest)},
+  { 21, -1, -1, sizeof(::Greeter::WatchRequest)},
+  { 27, -1, -1, sizeof(::Greeter::NowResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_HelloRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_HelloResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_TicktokRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_WatchRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_NowResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_hello_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013hello.proto\022\007Greeter\"\034\n\014HelloRequest\022\014"
   "\n\004name\030\001 \001(\t\"&\n\rHelloResponse\022\025\n\rreply_m"
-  "essage\030\001 \001(\t2H\n\016GreeterService\0226\n\005Hello\022"
-  "\025.Greeter.HelloRequest\032\026.Greeter.HelloRe"
-  "sponseB\013Z\t./Greeterb\006proto3"
+  "essage\030\001 \001(\t\" \n\016TicktokRequest\022\016\n\006counts"
+  "\030\001 \001(\005\"\016\n\014WatchRequest\"*\n\013NowResponse\022\013\n"
+  "\003now\030\001 \001(\004\022\016\n\006counts\030\002 \001(\0052H\n\016GreeterSer"
+  "vice\0226\n\005Hello\022\025.Greeter.HelloRequest\032\026.G"
+  "reeter.HelloResponse2\203\001\n\013TimeService\022:\n\007"
+  "Ticktok\022\027.Greeter.TicktokRequest\032\024.Greet"
+  "er.NowResponse0\001\0228\n\005Watch\022\025.Greeter.Watc"
+  "hRequest\032\024.Greeter.NowResponse(\0010\0012\221\001\n\rS"
+  "treamService\022@\n\rLotsOfReplies\022\025.Greeter."
+  "HelloRequest\032\026.Greeter.HelloResponse0\001\022>"
+  "\n\tBidiHello\022\025.Greeter.HelloRequest\032\026.Gre"
+  "eter.HelloResponse(\0010\001B\013Z\t./Greeterb\006pro"
+  "to3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hello_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hello_2eproto = {
-  false, false, 187, descriptor_table_protodef_hello_2eproto, "hello.proto", 
-  &descriptor_table_hello_2eproto_once, nullptr, 0, 2,
+  false, false, 563, descriptor_table_protodef_hello_2eproto, "hello.proto", 
+  &descriptor_table_hello_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_hello_2eproto::offsets,
   file_level_metadata_hello_2eproto, file_level_enum_descriptors_hello_2eproto, file_level_service_descriptors_hello_2eproto,
 };
@@ -517,6 +590,435 @@ void HelloResponse::InternalSwap(HelloResponse* other) {
       file_level_metadata_hello_2eproto[1]);
 }
 
+// ===================================================================
+
+class TicktokRequest::_Internal {
+ public:
+};
+
+TicktokRequest::TicktokRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:Greeter.TicktokRequest)
+}
+TicktokRequest::TicktokRequest(const TicktokRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  counts_ = from.counts_;
+  // @@protoc_insertion_point(copy_constructor:Greeter.TicktokRequest)
+}
+
+inline void TicktokRequest::SharedCtor() {
+counts_ = 0;
+}
+
+TicktokRequest::~TicktokRequest() {
+  // @@protoc_insertion_point(destructor:Greeter.TicktokRequest)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void TicktokRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void TicktokRequest::ArenaDtor(void* object) {
+  TicktokRequest* _this = reinterpret_cast< TicktokRequest* >(object);
+  (void)_this;
+}
+void TicktokRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void TicktokRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void TicktokRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:Greeter.TicktokRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  counts_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* TicktokRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 counts = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          counts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* TicktokRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Greeter.TicktokRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 counts = 1;
+  if (this->_internal_counts() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_counts(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:Greeter.TicktokRequest)
+  return target;
+}
+
+size_t TicktokRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Greeter.TicktokRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 counts = 1;
+  if (this->_internal_counts() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_counts());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TicktokRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    TicktokRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TicktokRequest::GetClassData() const { return &_class_data_; }
+
+void TicktokRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<TicktokRequest *>(to)->MergeFrom(
+      static_cast<const TicktokRequest &>(from));
+}
+
+
+void TicktokRequest::MergeFrom(const TicktokRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Greeter.TicktokRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_counts() != 0) {
+    _internal_set_counts(from._internal_counts());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void TicktokRequest::CopyFrom(const TicktokRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Greeter.TicktokRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TicktokRequest::IsInitialized() const {
+  return true;
+}
+
+void TicktokRequest::InternalSwap(TicktokRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(counts_, other->counts_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TicktokRequest::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
+      file_level_metadata_hello_2eproto[2]);
+}
+
+// ===================================================================
+
+class WatchRequest::_Internal {
+ public:
+};
+
+WatchRequest::WatchRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:Greeter.WatchRequest)
+}
+WatchRequest::WatchRequest(const WatchRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:Greeter.WatchRequest)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData WatchRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*WatchRequest::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata WatchRequest::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
+      file_level_metadata_hello_2eproto[3]);
+}
+
+// ===================================================================
+
+class NowResponse::_Internal {
+ public:
+};
+
+NowResponse::NowResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:Greeter.NowResponse)
+}
+NowResponse::NowResponse(const NowResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&now_, &from.now_,
+    static_cast<size_t>(reinterpret_cast<char*>(&counts_) -
+    reinterpret_cast<char*>(&now_)) + sizeof(counts_));
+  // @@protoc_insertion_point(copy_constructor:Greeter.NowResponse)
+}
+
+inline void NowResponse::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&now_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&counts_) -
+    reinterpret_cast<char*>(&now_)) + sizeof(counts_));
+}
+
+NowResponse::~NowResponse() {
+  // @@protoc_insertion_point(destructor:Greeter.NowResponse)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void NowResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void NowResponse::ArenaDtor(void* object) {
+  NowResponse* _this = reinterpret_cast< NowResponse* >(object);
+  (void)_this;
+}
+void NowResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void NowResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void NowResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:Greeter.NowResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&now_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&counts_) -
+      reinterpret_cast<char*>(&now_)) + sizeof(counts_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NowResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint64 now = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          now_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 counts = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          counts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* NowResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Greeter.NowResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 now = 1;
+  if (this->_internal_now() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_now(), target);
+  }
+
+  // int32 counts = 2;
+  if (this->_internal_counts() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_counts(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:Greeter.NowResponse)
+  return target;
+}
+
+size_t NowResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Greeter.NowResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint64 now = 1;
+  if (this->_internal_now() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_now());
+  }
+
+  // int32 counts = 2;
+  if (this->_internal_counts() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_counts());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData NowResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    NowResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*NowResponse::GetClassData() const { return &_class_data_; }
+
+void NowResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<NowResponse *>(to)->MergeFrom(
+      static_cast<const NowResponse &>(from));
+}
+
+
+void NowResponse::MergeFrom(const NowResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Greeter.NowResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_now() != 0) {
+    _internal_set_now(from._internal_now());
+  }
+  if (from._internal_counts() != 0) {
+    _internal_set_counts(from._internal_counts());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void NowResponse::CopyFrom(const NowResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Greeter.NowResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NowResponse::IsInitialized() const {
+  return true;
+}
+
+void NowResponse::InternalSwap(NowResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(NowResponse, counts_)
+      + sizeof(NowResponse::counts_)
+      - PROTOBUF_FIELD_OFFSET(NowResponse, now_)>(
+          reinterpret_cast<char*>(&now_),
+          reinterpret_cast<char*>(&other->now_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NowResponse::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
+      file_level_metadata_hello_2eproto[4]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Greeter
 PROTOBUF_NAMESPACE_OPEN
@@ -525,6 +1027,15 @@ template<> PROTOBUF_NOINLINE ::Greeter::HelloRequest* Arena::CreateMaybeMessage<
 }
 template<> PROTOBUF_NOINLINE ::Greeter::HelloResponse* Arena::CreateMaybeMessage< ::Greeter::HelloResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Greeter::HelloResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Greeter::TicktokRequest* Arena::CreateMaybeMessage< ::Greeter::TicktokRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Greeter::TicktokRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Greeter::WatchRequest* Arena::CreateMaybeMessage< ::Greeter::WatchRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Greeter::WatchRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Greeter::NowResponse* Arena::CreateMaybeMessage< ::Greeter::NowResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Greeter::NowResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
