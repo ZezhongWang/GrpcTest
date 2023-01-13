@@ -44,6 +44,11 @@ if not exist %CPP_OUTPUT_PATH% mkdir %CPP_OUTPUT_PATH%
  --plugin=protoc-gen-turbolink="%TURBOLINK_PLUGIN_PATH%" --turbolink_out="%OUTPUT_PATH%" ^
  %INPUT_PROTO_FILE%
 
+"%PROTOC_EXE_PATH%" ^
+ --go_out=. --go_opt=paths=source_relative ^
+ --go-grpc_out=. --go-grpc_opt=paths=source_relative ^
+ %INPUT_PROTO_FILE%
+
 ::Fix compile warning
 pushd %CPP_OUTPUT_PATH%
 
