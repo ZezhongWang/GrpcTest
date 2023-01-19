@@ -33,71 +33,79 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace Greeter {
-constexpr HelloRequest::HelloRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+PROTOBUF_CONSTEXPR HelloRequest::HelloRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct HelloRequestDefaultTypeInternal {
-  constexpr HelloRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR HelloRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~HelloRequestDefaultTypeInternal() {}
   union {
     HelloRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HelloRequestDefaultTypeInternal _HelloRequest_default_instance_;
-constexpr HelloResponse::HelloResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : reply_message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HelloRequestDefaultTypeInternal _HelloRequest_default_instance_;
+PROTOBUF_CONSTEXPR HelloResponse::HelloResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.reply_message_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct HelloResponseDefaultTypeInternal {
-  constexpr HelloResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR HelloResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~HelloResponseDefaultTypeInternal() {}
   union {
     HelloResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HelloResponseDefaultTypeInternal _HelloResponse_default_instance_;
-constexpr TicktokRequest::TicktokRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : counts_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HelloResponseDefaultTypeInternal _HelloResponse_default_instance_;
+PROTOBUF_CONSTEXPR TicktokRequest::TicktokRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.counts_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct TicktokRequestDefaultTypeInternal {
-  constexpr TicktokRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR TicktokRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~TicktokRequestDefaultTypeInternal() {}
   union {
     TicktokRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT TicktokRequestDefaultTypeInternal _TicktokRequest_default_instance_;
-constexpr WatchRequest::WatchRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TicktokRequestDefaultTypeInternal _TicktokRequest_default_instance_;
+PROTOBUF_CONSTEXPR WatchRequest::WatchRequest(
+    ::_pbi::ConstantInitialized) {}
 struct WatchRequestDefaultTypeInternal {
-  constexpr WatchRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR WatchRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~WatchRequestDefaultTypeInternal() {}
   union {
     WatchRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT WatchRequestDefaultTypeInternal _WatchRequest_default_instance_;
-constexpr NowResponse::NowResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : now_(uint64_t{0u})
-  , counts_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WatchRequestDefaultTypeInternal _WatchRequest_default_instance_;
+PROTOBUF_CONSTEXPR NowResponse::NowResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.now_)*/uint64_t{0u}
+  , /*decltype(_impl_.counts_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct NowResponseDefaultTypeInternal {
-  constexpr NowResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR NowResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~NowResponseDefaultTypeInternal() {}
   union {
     NowResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NowResponseDefaultTypeInternal _NowResponse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 NowResponseDefaultTypeInternal _NowResponse_default_instance_;
 }  // namespace Greeter
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hello_2eproto[5];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_hello_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_hello_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_hello_2eproto[5];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_hello_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_hello_2eproto = nullptr;
 
 const uint32_t TableStruct_hello_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -106,21 +114,21 @@ const uint32_t TableStruct_hello_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::Greeter::HelloRequest, name_),
+  PROTOBUF_FIELD_OFFSET(::Greeter::HelloRequest, _impl_.name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Greeter::HelloResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::Greeter::HelloResponse, reply_message_),
+  PROTOBUF_FIELD_OFFSET(::Greeter::HelloResponse, _impl_.reply_message_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Greeter::TicktokRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::Greeter::TicktokRequest, counts_),
+  PROTOBUF_FIELD_OFFSET(::Greeter::TicktokRequest, _impl_.counts_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Greeter::WatchRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -133,10 +141,10 @@ const uint32_t TableStruct_hello_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::Greeter::NowResponse, now_),
-  PROTOBUF_FIELD_OFFSET(::Greeter::NowResponse, counts_),
+  PROTOBUF_FIELD_OFFSET(::Greeter::NowResponse, _impl_.now_),
+  PROTOBUF_FIELD_OFFSET(::Greeter::NowResponse, _impl_.counts_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::Greeter::HelloRequest)},
   { 7, -1, -1, sizeof(::Greeter::HelloResponse)},
   { 14, -1, -1, sizeof(::Greeter::TicktokRequest)},
@@ -144,12 +152,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 27, -1, -1, sizeof(::Greeter::NowResponse)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_HelloRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_HelloResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_TicktokRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_WatchRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Greeter::_NowResponse_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::Greeter::_HelloRequest_default_instance_._instance,
+  &::Greeter::_HelloResponse_default_instance_._instance,
+  &::Greeter::_TicktokRequest_default_instance_._instance,
+  &::Greeter::_WatchRequest_default_instance_._instance,
+  &::Greeter::_NowResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_hello_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -169,19 +177,21 @@ const char descriptor_table_protodef_hello_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "eter.HelloResponse(\0010\001B\013Z\t./Greeterb\006pro"
   "to3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hello_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hello_2eproto = {
-  false, false, 563, descriptor_table_protodef_hello_2eproto, "hello.proto", 
-  &descriptor_table_hello_2eproto_once, nullptr, 0, 5,
-  schemas, file_default_instances, TableStruct_hello_2eproto::offsets,
-  file_level_metadata_hello_2eproto, file_level_enum_descriptors_hello_2eproto, file_level_service_descriptors_hello_2eproto,
+static ::_pbi::once_flag descriptor_table_hello_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_hello_2eproto = {
+    false, false, 563, descriptor_table_protodef_hello_2eproto,
+    "hello.proto",
+    &descriptor_table_hello_2eproto_once, nullptr, 0, 5,
+    schemas, file_default_instances, TableStruct_hello_2eproto::offsets,
+    file_level_metadata_hello_2eproto, file_level_enum_descriptors_hello_2eproto,
+    file_level_service_descriptors_hello_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_hello_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_hello_2eproto_getter() {
   return &descriptor_table_hello_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_hello_2eproto(&descriptor_table_hello_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_hello_2eproto(&descriptor_table_hello_2eproto);
 namespace Greeter {
 
 // ===================================================================
@@ -193,53 +203,58 @@ class HelloRequest::_Internal {
 HelloRequest::HelloRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:Greeter.HelloRequest)
 }
 HelloRequest::HelloRequest(const HelloRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  HelloRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.name_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArenaForAllocation());
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:Greeter.HelloRequest)
 }
 
-inline void HelloRequest::SharedCtor() {
-name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void HelloRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 HelloRequest::~HelloRequest() {
   // @@protoc_insertion_point(destructor:Greeter.HelloRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void HelloRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.name_.Destroy();
 }
 
-void HelloRequest::ArenaDtor(void* object) {
-  HelloRequest* _this = reinterpret_cast< HelloRequest* >(object);
-  (void)_this;
-}
-void HelloRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void HelloRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void HelloRequest::Clear() {
@@ -248,23 +263,23 @@ void HelloRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
+  _impl_.name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* HelloRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* HelloRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Greeter.HelloRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "Greeter.HelloRequest.name"));
         } else
           goto handle_unusual;
         continue;
@@ -308,7 +323,7 @@ uint8_t* HelloRequest::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:Greeter.HelloRequest)
@@ -330,32 +345,28 @@ size_t HelloRequest::ByteSizeLong() const {
         this->_internal_name());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData HelloRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     HelloRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*HelloRequest::GetClassData() const { return &_class_data_; }
 
-void HelloRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<HelloRequest *>(to)->MergeFrom(
-      static_cast<const HelloRequest &>(from));
-}
 
-
-void HelloRequest::MergeFrom(const HelloRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Greeter.HelloRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void HelloRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<HelloRequest*>(&to_msg);
+  auto& from = static_cast<const HelloRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:Greeter.HelloRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_name().empty()) {
-    _internal_set_name(from._internal_name());
+    _this->_internal_set_name(from._internal_name());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void HelloRequest::CopyFrom(const HelloRequest& from) {
@@ -375,14 +386,13 @@ void HelloRequest::InternalSwap(HelloRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &name_, lhs_arena,
-      &other->name_, rhs_arena
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
   );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata HelloRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
       file_level_metadata_hello_2eproto[0]);
 }
@@ -396,53 +406,58 @@ class HelloResponse::_Internal {
 HelloResponse::HelloResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:Greeter.HelloResponse)
 }
 HelloResponse::HelloResponse(const HelloResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  HelloResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.reply_message_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  reply_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.reply_message_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    reply_message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.reply_message_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_reply_message().empty()) {
-    reply_message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_reply_message(), 
-      GetArenaForAllocation());
+    _this->_impl_.reply_message_.Set(from._internal_reply_message(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:Greeter.HelloResponse)
 }
 
-inline void HelloResponse::SharedCtor() {
-reply_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  reply_message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void HelloResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.reply_message_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.reply_message_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.reply_message_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 HelloResponse::~HelloResponse() {
   // @@protoc_insertion_point(destructor:Greeter.HelloResponse)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void HelloResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  reply_message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.reply_message_.Destroy();
 }
 
-void HelloResponse::ArenaDtor(void* object) {
-  HelloResponse* _this = reinterpret_cast< HelloResponse* >(object);
-  (void)_this;
-}
-void HelloResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void HelloResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void HelloResponse::Clear() {
@@ -451,23 +466,23 @@ void HelloResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  reply_message_.ClearToEmpty();
+  _impl_.reply_message_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* HelloResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* HelloResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string reply_message = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_reply_message();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Greeter.HelloResponse.reply_message"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "Greeter.HelloResponse.reply_message"));
         } else
           goto handle_unusual;
         continue;
@@ -511,7 +526,7 @@ uint8_t* HelloResponse::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:Greeter.HelloResponse)
@@ -533,32 +548,28 @@ size_t HelloResponse::ByteSizeLong() const {
         this->_internal_reply_message());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData HelloResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     HelloResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*HelloResponse::GetClassData() const { return &_class_data_; }
 
-void HelloResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<HelloResponse *>(to)->MergeFrom(
-      static_cast<const HelloResponse &>(from));
-}
 
-
-void HelloResponse::MergeFrom(const HelloResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Greeter.HelloResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void HelloResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<HelloResponse*>(&to_msg);
+  auto& from = static_cast<const HelloResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:Greeter.HelloResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_reply_message().empty()) {
-    _internal_set_reply_message(from._internal_reply_message());
+    _this->_internal_set_reply_message(from._internal_reply_message());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void HelloResponse::CopyFrom(const HelloResponse& from) {
@@ -578,14 +589,13 @@ void HelloResponse::InternalSwap(HelloResponse* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &reply_message_, lhs_arena,
-      &other->reply_message_, rhs_arena
+      &_impl_.reply_message_, lhs_arena,
+      &other->_impl_.reply_message_, rhs_arena
   );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata HelloResponse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
       file_level_metadata_hello_2eproto[1]);
 }
@@ -599,42 +609,46 @@ class TicktokRequest::_Internal {
 TicktokRequest::TicktokRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:Greeter.TicktokRequest)
 }
 TicktokRequest::TicktokRequest(const TicktokRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  TicktokRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.counts_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  counts_ = from.counts_;
+  _this->_impl_.counts_ = from._impl_.counts_;
   // @@protoc_insertion_point(copy_constructor:Greeter.TicktokRequest)
 }
 
-inline void TicktokRequest::SharedCtor() {
-counts_ = 0;
+inline void TicktokRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.counts_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 TicktokRequest::~TicktokRequest() {
   // @@protoc_insertion_point(destructor:Greeter.TicktokRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void TicktokRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void TicktokRequest::ArenaDtor(void* object) {
-  TicktokRequest* _this = reinterpret_cast< TicktokRequest* >(object);
-  (void)_this;
-}
-void TicktokRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void TicktokRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void TicktokRequest::Clear() {
@@ -643,20 +657,20 @@ void TicktokRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  counts_ = 0;
+  _impl_.counts_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* TicktokRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* TicktokRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 counts = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          counts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.counts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -693,11 +707,11 @@ uint8_t* TicktokRequest::_InternalSerialize(
   // int32 counts = 1;
   if (this->_internal_counts() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_counts(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_counts(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:Greeter.TicktokRequest)
@@ -714,35 +728,31 @@ size_t TicktokRequest::ByteSizeLong() const {
 
   // int32 counts = 1;
   if (this->_internal_counts() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_counts());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_counts());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TicktokRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     TicktokRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TicktokRequest::GetClassData() const { return &_class_data_; }
 
-void TicktokRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<TicktokRequest *>(to)->MergeFrom(
-      static_cast<const TicktokRequest &>(from));
-}
 
-
-void TicktokRequest::MergeFrom(const TicktokRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Greeter.TicktokRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void TicktokRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<TicktokRequest*>(&to_msg);
+  auto& from = static_cast<const TicktokRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:Greeter.TicktokRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_counts() != 0) {
-    _internal_set_counts(from._internal_counts());
+    _this->_internal_set_counts(from._internal_counts());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void TicktokRequest::CopyFrom(const TicktokRequest& from) {
@@ -759,11 +769,11 @@ bool TicktokRequest::IsInitialized() const {
 void TicktokRequest::InternalSwap(TicktokRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(counts_, other->counts_);
+  swap(_impl_.counts_, other->_impl_.counts_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TicktokRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
       file_level_metadata_hello_2eproto[2]);
 }
@@ -781,6 +791,7 @@ WatchRequest::WatchRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 WatchRequest::WatchRequest(const WatchRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  WatchRequest* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:Greeter.WatchRequest)
 }
@@ -802,7 +813,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*WatchRequest::GetClassData() c
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata WatchRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
       file_level_metadata_hello_2eproto[3]);
 }
@@ -816,47 +827,50 @@ class NowResponse::_Internal {
 NowResponse::NowResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:Greeter.NowResponse)
 }
 NowResponse::NowResponse(const NowResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  NowResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.now_){}
+    , decltype(_impl_.counts_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&now_, &from.now_,
-    static_cast<size_t>(reinterpret_cast<char*>(&counts_) -
-    reinterpret_cast<char*>(&now_)) + sizeof(counts_));
+  ::memcpy(&_impl_.now_, &from._impl_.now_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.counts_) -
+    reinterpret_cast<char*>(&_impl_.now_)) + sizeof(_impl_.counts_));
   // @@protoc_insertion_point(copy_constructor:Greeter.NowResponse)
 }
 
-inline void NowResponse::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&now_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&counts_) -
-    reinterpret_cast<char*>(&now_)) + sizeof(counts_));
+inline void NowResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.now_){uint64_t{0u}}
+    , decltype(_impl_.counts_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 NowResponse::~NowResponse() {
   // @@protoc_insertion_point(destructor:Greeter.NowResponse)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void NowResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void NowResponse::ArenaDtor(void* object) {
-  NowResponse* _this = reinterpret_cast< NowResponse* >(object);
-  (void)_this;
-}
-void NowResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void NowResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void NowResponse::Clear() {
@@ -865,22 +879,22 @@ void NowResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&now_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&counts_) -
-      reinterpret_cast<char*>(&now_)) + sizeof(counts_));
+  ::memset(&_impl_.now_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.counts_) -
+      reinterpret_cast<char*>(&_impl_.now_)) + sizeof(_impl_.counts_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* NowResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* NowResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 now = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          now_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.now_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -888,7 +902,7 @@ const char* NowResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // int32 counts = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          counts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.counts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -925,17 +939,17 @@ uint8_t* NowResponse::_InternalSerialize(
   // uint64 now = 1;
   if (this->_internal_now() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_now(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_now(), target);
   }
 
   // int32 counts = 2;
   if (this->_internal_counts() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_counts(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_counts(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:Greeter.NowResponse)
@@ -952,43 +966,39 @@ size_t NowResponse::ByteSizeLong() const {
 
   // uint64 now = 1;
   if (this->_internal_now() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_now());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_now());
   }
 
   // int32 counts = 2;
   if (this->_internal_counts() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_counts());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_counts());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData NowResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     NowResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*NowResponse::GetClassData() const { return &_class_data_; }
 
-void NowResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<NowResponse *>(to)->MergeFrom(
-      static_cast<const NowResponse &>(from));
-}
 
-
-void NowResponse::MergeFrom(const NowResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Greeter.NowResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void NowResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<NowResponse*>(&to_msg);
+  auto& from = static_cast<const NowResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:Greeter.NowResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_now() != 0) {
-    _internal_set_now(from._internal_now());
+    _this->_internal_set_now(from._internal_now());
   }
   if (from._internal_counts() != 0) {
-    _internal_set_counts(from._internal_counts());
+    _this->_internal_set_counts(from._internal_counts());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void NowResponse::CopyFrom(const NowResponse& from) {
@@ -1006,15 +1016,15 @@ void NowResponse::InternalSwap(NowResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(NowResponse, counts_)
-      + sizeof(NowResponse::counts_)
-      - PROTOBUF_FIELD_OFFSET(NowResponse, now_)>(
-          reinterpret_cast<char*>(&now_),
-          reinterpret_cast<char*>(&other->now_));
+      PROTOBUF_FIELD_OFFSET(NowResponse, _impl_.counts_)
+      + sizeof(NowResponse::_impl_.counts_)
+      - PROTOBUF_FIELD_OFFSET(NowResponse, _impl_.now_)>(
+          reinterpret_cast<char*>(&_impl_.now_),
+          reinterpret_cast<char*>(&other->_impl_.now_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata NowResponse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_hello_2eproto_getter, &descriptor_table_hello_2eproto_once,
       file_level_metadata_hello_2eproto[4]);
 }
@@ -1022,19 +1032,24 @@ void NowResponse::InternalSwap(NowResponse* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Greeter
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::Greeter::HelloRequest* Arena::CreateMaybeMessage< ::Greeter::HelloRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Greeter::HelloRequest*
+Arena::CreateMaybeMessage< ::Greeter::HelloRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Greeter::HelloRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Greeter::HelloResponse* Arena::CreateMaybeMessage< ::Greeter::HelloResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Greeter::HelloResponse*
+Arena::CreateMaybeMessage< ::Greeter::HelloResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Greeter::HelloResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Greeter::TicktokRequest* Arena::CreateMaybeMessage< ::Greeter::TicktokRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Greeter::TicktokRequest*
+Arena::CreateMaybeMessage< ::Greeter::TicktokRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Greeter::TicktokRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Greeter::WatchRequest* Arena::CreateMaybeMessage< ::Greeter::WatchRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Greeter::WatchRequest*
+Arena::CreateMaybeMessage< ::Greeter::WatchRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Greeter::WatchRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Greeter::NowResponse* Arena::CreateMaybeMessage< ::Greeter::NowResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Greeter::NowResponse*
+Arena::CreateMaybeMessage< ::Greeter::NowResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Greeter::NowResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
