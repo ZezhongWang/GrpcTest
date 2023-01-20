@@ -74,3 +74,4 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 .idea/.idea.GrpcTest/.idea/vcs.xml
 output/
+*.log
