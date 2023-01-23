@@ -12,6 +12,7 @@ void UGrpcTestGameInstance::Init()
 
 void UGrpcTestGameInstance::Shutdown()
 {
+	Super::Shutdown();
 	UTurboLinkGrpcManager* turboLinkManager = UTurboLinkGrpcUtilities::GetTurboLinkGrpcManager();
 	turboLinkManager->Shutdown();
 }
