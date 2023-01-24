@@ -76,3 +76,4 @@ DerivedDataCache/*
 output/
 *.log
 turbolink/
+Plugins/Turbolink/
