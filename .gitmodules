@@ -1,0 +1,3 @@
+[submodule "Plugins/turbolink"]
+	path = Plugins/turbolink
+	url = https://github.com/ZezhongWang/turbolink.git

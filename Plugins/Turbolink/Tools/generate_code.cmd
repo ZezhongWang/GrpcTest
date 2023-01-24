@@ -35,18 +35,13 @@ goto :eof
 set PROTO_CPP_FILE_NAME=%~n1.pb.cc
 set PROTO_H_FILE_NAME=%~n1.pb.h
 
-set CPP_OUTPUT_PATH=%OUTPUT_PATH%\Private\S%PACKAGE_NAME%\pb
+set CPP_OUTPUT_PATH=%OUTPUT_PATH%\Private\pb
 if not exist %CPP_OUTPUT_PATH% mkdir %CPP_OUTPUT_PATH%
 
 "%PROTOC_EXE_PATH%" ^
  --cpp_out="%CPP_OUTPUT_PATH%" ^
  --plugin=protoc-gen-grpc="%GRPC_CPP_PLUGIN_EXE_PATH%" --grpc_out=%CPP_OUTPUT_PATH% ^
  --plugin=protoc-gen-turbolink="%TURBOLINK_PLUGIN_PATH%" --turbolink_out="%OUTPUT_PATH%" ^
- %INPUT_PROTO_FILE%
-
-"%PROTOC_EXE_PATH%" ^
- --go_out=. --go_opt=paths=source_relative ^
- --go-grpc_out=. --go-grpc_opt=paths=source_relative ^
  %INPUT_PROTO_FILE%
 
 ::Fix compile warning

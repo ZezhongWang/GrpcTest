@@ -31,12 +31,11 @@ void UTurboLinkGrpcManager::InitManager()
 	//Registe All Service Classes
 	TArray<UClass*> seriviceClasses;
 	GetDerivedClasses(UGrpcService::StaticClass(), seriviceClasses, false);
-	UE_LOG(LogTurboLink, Warning, TEXT("Init Turbolink Manager"));
+
 	for (int32 i = 0; i < seriviceClasses.Num(); i++)
 	{
 		UClass* serviceClass = seriviceClasses[i];
 		ServiceClassMap.Add(serviceClass->GetName(), serviceClass);
-		UE_LOG(LogTurboLink, Warning, TEXT("Register Service '%s'"), *serviceClass->GetName());
 	}
 	//Create global completion queue
 	d->CompletionQueue = std::make_unique<grpc::CompletionQueue>();
