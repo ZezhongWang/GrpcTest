@@ -5,13 +5,13 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "SGreeter/GreeterClient.h"
-#include "TurboLinkDemoCppTest.generated.h"
+#include "TurboLinkSDCppTestWidget.generated.h"
 
 class UGreeterService;
 class UTimeService;
 
 UCLASS()
-class UTurboLinkDemoCppTest : public UUserWidget
+class GRPCTEST_API UTurboLinkCppTestWidget : public UUserWidget
 {
 	GENERATED_BODY()
 

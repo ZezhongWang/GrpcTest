@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "TurboLinkDemoCppTest.h"
+#include "TurboLinkSDCppTestWidget.h"
 
 #include "Components/Button.h"
 #include "Components/EditableText.h"
@@ -13,26 +13,26 @@
 
 #include "SGreeter/GreeterService.h"
 
-void UTurboLinkDemoCppTest::NativeConstruct()
+void UTurboLinkCppTestWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
     FString greeterServiceEndPoint = UTurboLinkGrpcUtilities::GetTurboLinkGrpcConfig()->GetServiceEndPoint(TEXT("GreeterService"));
     GreeterServiceAddress->SetText(FText::FromString(FString::Printf(TEXT("(%s)"), *greeterServiceEndPoint)));
 
-    ConnectGreeterServiceButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnConnectGreeterServiceButtonClicked);
-    CreatGreeterClientButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnCreateGreeterClientButtonClicked);
-    CallGreeterButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnCallGreeterButtonClicked);
-    CallGreeterWithLambdaButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnCallGreeterWithLambdaButtonClicked);
+    ConnectGreeterServiceButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnConnectGreeterServiceButtonClicked);
+    CreatGreeterClientButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnCreateGreeterClientButtonClicked);
+    CallGreeterButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnCallGreeterButtonClicked);
+    CallGreeterWithLambdaButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnCallGreeterWithLambdaButtonClicked);
 
     FString timeServiceEndPoint = UTurboLinkGrpcUtilities::GetTurboLinkGrpcConfig()->GetServiceEndPoint(TEXT("TimeService"));
     TimeServiceAddress->SetText(FText::FromString(FString::Printf(TEXT("(%s)"), *timeServiceEndPoint)));
 
-    ConnectTimeServiceButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnConnectTimeServiceButtonClicked);
-    CreateTimeClientButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnCreateTimeClientButtonClicked);
-    CallTicktokButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnCallTicktokButtonClicked);
-    InitWatchButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnInitWatchButtonClicked);
-    CallWatchButton->OnClicked.AddDynamic(this, &UTurboLinkDemoCppTest::OnCallWatchButtonClicked);
+    ConnectTimeServiceButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnConnectTimeServiceButtonClicked);
+    CreateTimeClientButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnCreateTimeClientButtonClicked);
+    CallTicktokButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnCallTicktokButtonClicked);
+    InitWatchButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnInitWatchButtonClicked);
+    CallWatchButton->OnClicked.AddDynamic(this, &UTurboLinkCppTestWidget::OnCallWatchButtonClicked);
 
     CreatGreeterClientButton->SetIsEnabled(false);
     CallGreeterButton->SetIsEnabled(false);
@@ -44,10 +44,10 @@ void UTurboLinkDemoCppTest::NativeConstruct()
     CallWatchButton->SetIsEnabled(false);
 }
 
-void UTurboLinkDemoCppTest::OnConnectGreeterServiceButtonClicked()
+void UTurboLinkCppTestWidget::OnConnectGreeterServiceButtonClicked()
 {
     if (GreeterService != nullptr) return;
-    UTurboLinkGrpcManager* turboLinkManager = UTurboLinkGrpcUtilities::GetTurboLinkGrpcManager();
+    UTurboLinkGrpcManager* turboLinkManager = UTurboLinkGrpcUtilities::GetTurboLinkGrpcManager(this);
 
     //create service adapter
     GreeterService = Cast<UGreeterService>(turboLinkManager->MakeService("GreeterService"));
@@ -56,13 +56,13 @@ void UTurboLinkDemoCppTest::OnConnectGreeterServiceButtonClicked()
         UE_LOG(LogTemp, Error, TEXT("Can't find greeter service!"));
         return;
     }
-    GreeterService->OnServiceStateChanged.AddUniqueDynamic(this, &UTurboLinkDemoCppTest::OnGreeterServiceStateChanged);
+    GreeterService->OnServiceStateChanged.AddUniqueDynamic(this, &UTurboLinkCppTestWidget::OnGreeterServiceStateChanged);
     GreeterService->Connect();
 
     ConnectGreeterServiceButton->SetIsEnabled(false);
 }
 
-void UTurboLinkDemoCppTest::OnCreateGreeterClientButtonClicked()
+void UTurboLinkCppTestWidget::OnCreateGreeterClientButtonClicked()
 {
     if (GreeterService != nullptr && 
         GreeterService->GetServiceState() == EGrpcServiceState::Ready &&
@@ -70,14 +70,14 @@ void UTurboLinkDemoCppTest::OnCreateGreeterClientButtonClicked()
     {
         //create client
         GreeterServiceClient = GreeterService->MakeClient();
-        GreeterServiceClient->OnHelloResponse.AddUniqueDynamic(this, &UTurboLinkDemoCppTest::OnHelloResponse);
+        GreeterServiceClient->OnHelloResponse.AddUniqueDynamic(this, &UTurboLinkCppTestWidget::OnHelloResponse);
 
         CallGreeterButton->SetIsEnabled(true);
         CreatGreeterClientButton->SetIsEnabled(false);
     }
 }
 
-void UTurboLinkDemoCppTest::OnCallGreeterButtonClicked()
+void UTurboLinkCppTestWidget::OnCallGreeterButtonClicked()
 {
     if (GreeterService == nullptr ||
         (GreeterService->GetServiceState() != EGrpcServiceState::Ready && GreeterService->GetServiceState() != EGrpcServiceState::Idle) ||
@@ -101,7 +101,7 @@ void UTurboLinkDemoCppTest::OnCallGreeterButtonClicked()
     CallGreeterButton->SetIsEnabled(false);
 }
 
-void UTurboLinkDemoCppTest::OnCallGreeterWithLambdaButtonClicked()
+void UTurboLinkCppTestWidget::OnCallGreeterWithLambdaButtonClicked()
 {
     if (GreeterService == nullptr ||
         (GreeterService->GetServiceState() != EGrpcServiceState::Ready && GreeterService->GetServiceState() != EGrpcServiceState::Idle))
@@ -127,7 +127,7 @@ void UTurboLinkDemoCppTest::OnCallGreeterWithLambdaButtonClicked()
     });
 }
 
-void UTurboLinkDemoCppTest::OnGreeterServiceStateChanged(EGrpcServiceState NewState)
+void UTurboLinkCppTestWidget::OnGreeterServiceStateChanged(EGrpcServiceState NewState)
 {
     int preFixLen = FString(TEXT("EGrpcServiceState::")).Len();
     GreeterServiceStatus->SetText(FText::FromString(UEnum::GetValueAsString(NewState).RightChop(preFixLen)));
@@ -138,7 +138,7 @@ void UTurboLinkDemoCppTest::OnGreeterServiceStateChanged(EGrpcServiceState NewSt
     }
 }
 
-void UTurboLinkDemoCppTest::OnHelloResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterHelloResponse& Response)
+void UTurboLinkCppTestWidget::OnHelloResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterHelloResponse& Response)
 {
     if (Result.Code == EGrpcResultCode::Ok)
     {
@@ -151,10 +151,10 @@ void UTurboLinkDemoCppTest::OnHelloResponse(FGrpcContextHandle Handle, const FGr
     CallGreeterButton->SetIsEnabled(true);
 }
 
-void UTurboLinkDemoCppTest::OnConnectTimeServiceButtonClicked()
+void UTurboLinkCppTestWidget::OnConnectTimeServiceButtonClicked()
 {
     if (TimeService != nullptr) return;
-    UTurboLinkGrpcManager* turboLinkManager = UTurboLinkGrpcUtilities::GetTurboLinkGrpcManager();
+    UTurboLinkGrpcManager* turboLinkManager = UTurboLinkGrpcUtilities::GetTurboLinkGrpcManager(this);
 
     //create service adapter
     TimeService = Cast<UTimeService>(turboLinkManager->MakeService("TimeService"));
@@ -163,13 +163,13 @@ void UTurboLinkDemoCppTest::OnConnectTimeServiceButtonClicked()
         UE_LOG(LogTemp, Error, TEXT("Can't find time service!"));
         return;
     }
-    TimeService->OnServiceStateChanged.AddUniqueDynamic(this, &UTurboLinkDemoCppTest::OnTimeServiceStateChanged);
+    TimeService->OnServiceStateChanged.AddUniqueDynamic(this, &UTurboLinkCppTestWidget::OnTimeServiceStateChanged);
     TimeService->Connect();
 
     ConnectTimeServiceButton->SetIsEnabled(false);
 }
 
-void UTurboLinkDemoCppTest::OnTimeServiceStateChanged(EGrpcServiceState NewState)
+void UTurboLinkCppTestWidget::OnTimeServiceStateChanged(EGrpcServiceState NewState)
 {
     int preFixLen = FString(TEXT("EGrpcServiceState::")).Len();
     TimeServiceStatus->SetText(FText::FromString(UEnum::GetValueAsString(NewState).RightChop(preFixLen)));
@@ -184,7 +184,7 @@ void UTurboLinkDemoCppTest::OnTimeServiceStateChanged(EGrpcServiceState NewState
     }
 }
 
-void UTurboLinkDemoCppTest::OnCreateTimeClientButtonClicked()
+void UTurboLinkCppTestWidget::OnCreateTimeClientButtonClicked()
 {
     if (TimeService != nullptr &&
         TimeService->GetServiceState() == EGrpcServiceState::Ready &&
@@ -192,9 +192,9 @@ void UTurboLinkDemoCppTest::OnCreateTimeClientButtonClicked()
     {
         //create client
         TimeServiceClient = TimeService->MakeClient();
-        TimeServiceClient->OnTicktokResponse.AddUniqueDynamic(this, &UTurboLinkDemoCppTest::OnTicktokResponse);
-        TimeServiceClient->OnWatchResponse.AddUniqueDynamic(this, &UTurboLinkDemoCppTest::OnWatchResponse);
-        TimeServiceClient->OnContextStateChange.AddUniqueDynamic(this, &UTurboLinkDemoCppTest::OnTimeContextStateChanged);
+        TimeServiceClient->OnTicktokResponse.AddUniqueDynamic(this, &UTurboLinkCppTestWidget::OnTicktokResponse);
+        TimeServiceClient->OnWatchResponse.AddUniqueDynamic(this, &UTurboLinkCppTestWidget::OnWatchResponse);
+        TimeServiceClient->OnContextStateChange.AddUniqueDynamic(this, &UTurboLinkCppTestWidget::OnTimeContextStateChanged);
 
         CreateTimeClientButton->SetIsEnabled(false);
 
@@ -203,7 +203,7 @@ void UTurboLinkDemoCppTest::OnCreateTimeClientButtonClicked()
     }
 }
 
-void UTurboLinkDemoCppTest::OnCallTicktokButtonClicked()
+void UTurboLinkCppTestWidget::OnCallTicktokButtonClicked()
 {
     if (TimeService == nullptr ||
         (TimeService->GetServiceState() != EGrpcServiceState::Ready && TimeService->GetServiceState() != EGrpcServiceState::Idle) ||
@@ -228,7 +228,7 @@ void UTurboLinkDemoCppTest::OnCallTicktokButtonClicked()
     CallTicktokButton->SetIsEnabled(false);
 }
 
-void UTurboLinkDemoCppTest::OnTicktokResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterNowResponse& Response)
+void UTurboLinkCppTestWidget::OnTicktokResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterNowResponse& Response)
 {
     if (Result.Code == EGrpcResultCode::Ok)
     {
@@ -241,7 +241,7 @@ void UTurboLinkDemoCppTest::OnTicktokResponse(FGrpcContextHandle Handle, const F
     }
 }
 
-void UTurboLinkDemoCppTest::OnInitWatchButtonClicked()
+void UTurboLinkCppTestWidget::OnInitWatchButtonClicked()
 {
     if (TimeService == nullptr ||
         (TimeService->GetServiceState() != EGrpcServiceState::Ready && TimeService->GetServiceState() != EGrpcServiceState::Idle) ||
@@ -263,7 +263,7 @@ void UTurboLinkDemoCppTest::OnInitWatchButtonClicked()
     CallWatchButton->SetIsEnabled(true);
 }
 
-void UTurboLinkDemoCppTest::OnCallWatchButtonClicked()
+void UTurboLinkCppTestWidget::OnCallWatchButtonClicked()
 {
     if (TimeServiceClient && TimeServiceClient->GetContextState(CtxWatch) == EGrpcContextState::Busy)
     {
@@ -271,7 +271,7 @@ void UTurboLinkDemoCppTest::OnCallWatchButtonClicked()
     }
 }
 
-void UTurboLinkDemoCppTest::OnWatchResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterNowResponse& Response)
+void UTurboLinkCppTestWidget::OnWatchResponse(FGrpcContextHandle Handle, const FGrpcResult& Result, const FGrpcGreeterNowResponse& Response)
 {
     if (Result.Code == EGrpcResultCode::Ok)
     {
@@ -284,7 +284,7 @@ void UTurboLinkDemoCppTest::OnWatchResponse(FGrpcContextHandle Handle, const FGr
     }
 }
 
-void UTurboLinkDemoCppTest::OnTimeContextStateChanged(FGrpcContextHandle Handle, EGrpcContextState NewState)
+void UTurboLinkCppTestWidget::OnTimeContextStateChanged(FGrpcContextHandle Handle, EGrpcContextState NewState)
 {
     if (Handle == CtxTicktok && NewState == EGrpcContextState::Done)
     {
